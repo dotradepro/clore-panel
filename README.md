@@ -51,7 +51,7 @@ curl -fsSL https://raw.githubusercontent.com/dotradepro/clore-panel/main/packagi
 - оплата через PayPal, можно банковской картой без аккаунта PayPal;
 - после оплаты Pro включается сам — ключ вводить не нужно.
 
-Ещё один способ — [GitHub Sponsors](https://github.com/sponsors/dotradepro): спонсорство от **$5 в месяц** или от **$49 разово** тоже даёт Pro (в карточке «Лицензия» нажмите «Войти через GitHub»). Меньшие суммы — поддержка всех моих проектов, спасибо!
+❤ Поддержать мои проекты можно на [GitHub Sponsors](https://github.com/sponsors/dotradepro) — это именно поддержка, Pro там не продаётся.
 
 ## 📖 Документация
 
@@ -112,7 +112,7 @@ Then open the panel (Windows: the “Clore Panel” shortcut; Linux: **http://lo
 - pay with PayPal, or with a bank card without a PayPal account;
 - Pro turns on by itself after payment — no key to enter.
 
-Another way is [GitHub Sponsors](https://github.com/sponsors/dotradepro): sponsoring **$5+/month** or **$49+ one-time** also unlocks Pro (click “Sign in with GitHub” in the License card). Smaller amounts support all my projects — thank you!
+❤ You can support my projects on [GitHub Sponsors](https://github.com/sponsors/dotradepro) — that's pure support; Pro isn't sold there.
 
 ## 📖 Documentation
 
