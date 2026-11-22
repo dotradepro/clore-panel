@@ -3,22 +3,24 @@
 [![Sponsor](https://img.shields.io/badge/Sponsor-%E2%9D%A4-db61a2?logo=githubsponsors)](https://github.com/sponsors/dotradepro)
 
 Панель мониторинга и **автоматизации заработка** на GPU-серверах [Clore.ai](https://clore.ai): автоцена,
-майнинг в простое, арбитраж (аренда чужих GPU под майнинг, когда это выгоднее) и Telegram-оператор на базе Claude.
-Только Python 3 из стандартной библиотеки — без внешних зависимостей.
+майнинг в простое, арбитраж (аренда чужих GPU под майнинг, когда это выгоднее) и Claude-помощник в Telegram.
+Работает на **Linux и Windows**. Только Python 3 из стандартной библиотеки — без внешних зависимостей.
 
 **Русский** · [English](#clore-panel-english)
 
 ---
 
-## ⚡ Установка (одна строка)
+## ⚡ Установка
 
-На Linux с видеокартой NVIDIA:
+**Linux** (одна строка, нужен Python 3 и драйвер NVIDIA):
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/dotradepro/clore-panel/main/packaging/install.sh | sudo bash
 ```
 
-Откройте **http://localhost:8080** и введите ключи в «Настройки → Аккаунты». Нужен Python 3 (есть в любом современном Ubuntu/Debian) и драйвер NVIDIA.
+**Windows 10/11:** скачайте `ClorePanelSetup-<версия>.exe` из [последнего релиза](https://github.com/dotradepro/clore-panel/releases/latest) и запустите — права администратора и Python не нужны. Установщик пока без цифровой подписи: если Windows покажет «Система Windows защитила ваш компьютер», нажмите «Подробнее» → «Выполнить в любом случае».
+
+Затем откройте панель (на Windows — ярлык «Clore Panel», на Linux — **http://localhost:8080** или приложение в меню) и введите ключи в «Настройки → Аккаунты и ключи».
 
 ## 🚀 Что умеет
 
@@ -26,11 +28,12 @@ curl -fsSL https://raw.githubusercontent.com/dotradepro/clore-panel/main/packagi
 - **Автоцена** — считает цену от медианы реально сданных серверов с такой же картой; пол = доход майнинга + запас. Спот можно держать дешевле постоянной аренды.
 - **Майнинг в простое** (Kryptex) — свободная карта сама майнит выгоднейшую монету (Pearl/Quantus) и останавливается на время аренды. Воркеры, доход, награды за 31 день и доходность сети — из официального API пула; по желанию вход в Kryptex (вы логинитесь сами) открывает реальный баланс и изменение настроек майнера прямо из панели.
 - **Арбитраж** 🅿️ — арендует чужие GPU и майнит на них, когда это дешевле дохода; решает по окупаемости и марже, учится на результатах, проверяет подлинность железа (предупреждения по карточке + сверка чипа PCI в контейнере), фильтрует плохие хосты и бот-снайперов, платит в BTC/CLORE.
-- **Telegram-оператор** 🅿️ — автономное управление 24/7, советуется с Claude в рамках ваших лимитов.
+- **Claude-помощник в Telegram** — отвечает на вопросы о серверах, арендах, арбитраже и деньгах (данные берёт из панели), присылает утренний бриф; действия (отмена аренды, режим арбитража) — только после вашей кнопки «Выполнить». Доступ — ключом API Anthropic или подпиской Claude (Claude Code ставится из панели кнопкой).
+- **Приложение для Windows** — своё окно и значок в трее: цвет по состоянию, «Сдано», «Доход сегодня», уведомления о важных событиях, запуск при входе в Windows.
 - **Анти-майнер** — режет частоту арендаторам, которые майнят (владельца не трогает).
 - **Обслуживание** — драйвер NVIDIA, обновления, перезагрузка; свои сервера через агента.
-- **Безопасное самообновление** — код агента на серверах обновляется только с валидной подписью владельца (RSA, fail-closed): подменить обновление по сети нельзя.
-- **Проверка обновлений панели** — панель сама видит новую версию на GitHub и предлагает установить: в приложении кнопка открывает терминал с командой (пароль root вводите вы), в вебе — показывает команду.
+- **Безопасность** — код агента обновляется только с подписью владельца; сами команды и настройки агентам подписаны ключом вашей панели (подменить их, зная токен или встав посередине соединения, нельзя); опасные действия из браузера (смена ключей, восстановление бэкапа, удаление агента, драйвер, разгон, авто-арбитраж) подтверждаются кодом из Telegram; ключи и пароли в настройках хранятся зашифрованными.
+- **Проверка обновлений** — панель сама видит новую версию на GitHub: на Windows кнопка «Обновить» скачивает и ставит её в один клик, на Linux открывает терминал с командой (пароль root вводите вы), в веб-версии показывает команду.
 
 🅿️ — функции тарифа **Pro**.
 
@@ -40,15 +43,14 @@ curl -fsSL https://raw.githubusercontent.com/dotradepro/clore-panel/main/packagi
 |---|---|
 | Мониторинг, графики, доходы/P&L | Арбитраж |
 | Обслуживание серверов | Обучение на результатах |
-| Просмотр майнинга | Telegram-оператор (Claude) |
-| Автоцена — режим «совет» | Автоцена — авто-режим |
-| | Мультивалютный майнинг, рыночная аналитика |
+| Просмотр майнинга | Автоцена — авто-режим |
+| Автоцена — режим «совет» | Мультивалютный майнинг, рыночная аналитика |
 
 Pro оформляется через [GitHub Sponsors](https://github.com/sponsors/dotradepro): после оформления войдите в панели через GitHub — Pro включится автоматически.
 
 ## 📖 Документация
 
-Подробный мануал со скриншотами (установка, каждая вкладка, арбитраж, автоцена, Telegram, FAQ) — в **[Wiki](https://github.com/dotradepro/clore-panel/wiki)**.
+Подробный мануал со скриншотами (установка на Linux и Windows, каждая вкладка, арбитраж, автоцена, Claude-помощник, FAQ) — в **[Wiki](https://github.com/dotradepro/clore-panel/wiki)**.
 
 ## 📄 Лицензия
 
@@ -59,20 +61,22 @@ Pro оформляется через [GitHub Sponsors](https://github.com/spons
 # Clore Panel (English)
 
 A monitoring and **earnings-automation** panel for [Clore.ai](https://clore.ai) GPU hosts: auto-pricing,
-idle mining, arbitrage (renting other people's GPUs to mine when it's cheaper than the yield) and a Claude-powered
-Telegram operator. Pure Python 3 standard library — no external dependencies.
+idle mining, arbitrage (renting other people's GPUs to mine when it's cheaper than the yield) and a Claude
+assistant in Telegram. Runs on **Linux and Windows**. Pure Python 3 standard library — no external dependencies.
 
 [Русский](#clore-panel) · **English**
 
-## ⚡ Install (one line)
+## ⚡ Install
 
-On Linux with an NVIDIA GPU:
+**Linux** (one line; needs Python 3 and the NVIDIA driver):
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/dotradepro/clore-panel/main/packaging/install.sh | sudo bash
 ```
 
-Open **http://localhost:8080** and enter your keys under *Settings → Accounts*. Requires Python 3 (present on any modern Ubuntu/Debian) and the NVIDIA driver.
+**Windows 10/11:** download `ClorePanelSetup-<version>.exe` from the [latest release](https://github.com/dotradepro/clore-panel/releases/latest) and run it — no admin rights or Python needed. The installer isn't code-signed yet: if Windows shows “Windows protected your PC”, click “More info” → “Run anyway”.
+
+Then open the panel (Windows: the “Clore Panel” shortcut; Linux: **http://localhost:8080** or the app in the menu) and enter your keys under *Settings → Accounts & keys*.
 
 ## 🚀 Features
 
@@ -80,11 +84,12 @@ Open **http://localhost:8080** and enter your keys under *Settings → Accounts*
 - **Auto-pricing** — prices from the median of actually-rented servers with the same GPU; floor = mining income + margin. Spot can be kept cheaper than on-demand.
 - **Idle mining** (Kryptex) — a free GPU mines the most profitable coin (Pearl/Quantus) and stops while rented. Workers, income, 31-day rewards and network profitability come from the official pool API; optionally, signing into Kryptex (you log in yourself) unlocks the real balance and editing miner settings right from the panel.
 - **Arbitrage** 🅿️ — rents other GPUs and mines on them when cheaper than the yield; decides by payback and margin, learns from results, verifies hardware authenticity (listing warnings + PCI-chip check in the container), filters bad hosts and sniper bots, pays in BTC/CLORE.
-- **Telegram operator** 🅿️ — autonomous 24/7 operation, consults Claude within your limits.
+- **Claude assistant in Telegram** — answers questions about servers, rentals, arbitrage and money (using the panel's data), sends a morning brief; actions (cancel a rental, arbitrage mode) only after you press “Run”. Access via an Anthropic API key or a Claude subscription (Claude Code is installed from the panel with one click).
+- **Windows app** — its own window and tray icon: status colour, rented servers, today's income, notifications about important events, start at sign-in.
 - **Anti-miner** — throttles renters who mine (never the owner).
 - **Maintenance** — NVIDIA driver, updates, reboot; your own servers via an agent.
-- **Secure self-update** — the agent code on your servers updates only with a valid owner signature (RSA, fail-closed): a man-in-the-middle can't swap in a tampered update.
-- **Panel update check** — the panel spots a new version on GitHub and offers to install it: in the app a button opens a terminal with the command (you type the root password), on the web it shows the command.
+- **Security** — agent code updates only with the owner's signature; commands and settings sent to agents are signed by your panel's own key (they can't be forged with the agent token or a man-in-the-middle); dangerous actions from the browser (changing keys, restoring a backup, removing an agent, driver, overclocking, automatic arbitrage) require a code from Telegram; keys and passwords are stored encrypted.
+- **Update check** — the panel spots a new version on GitHub: on Windows the “Update” button downloads and installs it in one click, on Linux it opens a terminal with the command (you type the root password), on the web it shows the command.
 
 🅿️ — **Pro** tier features.
 
@@ -94,15 +99,14 @@ Open **http://localhost:8080** and enter your keys under *Settings → Accounts*
 |---|---|
 | Monitoring, charts, earnings/P&L | Arbitrage |
 | Server maintenance | Learning from results |
-| Mining view | Telegram operator (Claude) |
-| Auto-pricing — advise mode | Auto-pricing — automatic |
-| | Multi-coin mining, market intel |
+| Mining view | Auto-pricing — automatic |
+| Auto-pricing — advise mode | Multi-coin mining, market intel |
 
 Pro is handled via [GitHub Sponsors](https://github.com/sponsors/dotradepro): after sponsoring, sign in with GitHub inside the panel — Pro unlocks automatically.
 
 ## 📖 Documentation
 
-A detailed manual with screenshots (install, every tab, arbitrage, auto-pricing, Telegram, FAQ) lives in the **[Wiki](https://github.com/dotradepro/clore-panel/wiki)**.
+A detailed manual with screenshots (Linux and Windows install, every tab, arbitrage, auto-pricing, Claude assistant, FAQ) lives in the **[Wiki](https://github.com/dotradepro/clore-panel/wiki)**.
 
 ## 📄 License
 
