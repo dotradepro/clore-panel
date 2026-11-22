@@ -28,7 +28,7 @@ curl -fsSL https://raw.githubusercontent.com/dotradepro/clore-panel/main/packagi
 - **Автоцена** — считает цену от медианы реально сданных серверов с такой же картой; пол = доход майнинга + запас. Спот можно держать дешевле постоянной аренды.
 - **Майнинг в простое** (Kryptex) — свободная карта сама майнит выгоднейшую монету (Pearl/Quantus) и останавливается на время аренды. Воркеры, доход, награды за 31 день и доходность сети — из официального API пула; по желанию вход в Kryptex (вы логинитесь сами) открывает реальный баланс и изменение настроек майнера прямо из панели.
 - **Арбитраж** 🅿️ — арендует чужие GPU и майнит на них, когда это дешевле дохода; решает по окупаемости и марже, учится на результатах, проверяет подлинность железа (предупреждения по карточке + сверка чипа PCI в контейнере), фильтрует плохие хосты и бот-снайперов, платит в BTC/CLORE.
-- **Claude-помощник в Telegram** — отвечает на вопросы о серверах, арендах, арбитраже и деньгах (данные берёт из панели), присылает утренний бриф; действия (отмена аренды, режим арбитража) — только после вашей кнопки «Выполнить». Доступ — ключом API Anthropic или подпиской Claude (Claude Code ставится из панели кнопкой).
+- **Claude-помощник в Telegram** 🅿️ — отвечает на вопросы о серверах, арендах, арбитраже и деньгах (данные берёт из панели), присылает утренний бриф; действия (отмена аренды, режим арбитража) — только после вашей кнопки «Выполнить». Доступ — ключом API Anthropic или подпиской Claude (Claude Code ставится из панели кнопкой).
 - **Приложение для Windows** — своё окно и значок в трее: цвет по состоянию, «Сдано», «Доход сегодня», уведомления о важных событиях, запуск при входе в Windows.
 - **Анти-майнер** — режет частоту арендаторам, которые майнят (владельца не трогает).
 - **Обслуживание** — драйвер NVIDIA, обновления, перезагрузка; свои сервера через агента.
@@ -43,10 +43,15 @@ curl -fsSL https://raw.githubusercontent.com/dotradepro/clore-panel/main/packagi
 |---|---|
 | Мониторинг, графики, доходы/P&L | Арбитраж |
 | Обслуживание серверов | Обучение на результатах |
-| Просмотр майнинга | Автоцена — авто-режим |
+| Просмотр майнинга | Автоцена — авто-режим, Claude-помощник в Telegram |
 | Автоцена — режим «совет» | Мультивалютный майнинг, рыночная аналитика |
 
-Pro оформляется через [GitHub Sponsors](https://github.com/sponsors/dotradepro): после оформления войдите в панели через GitHub — Pro включится автоматически.
+**Как купить Pro:** прямо в панели — «Настройки → Аккаунты и ключи → Лицензия → Купить Pro»:
+- **$49 — навсегда** (разовый платёж) или **$5 в месяц** (подписка, отменяется в любой момент в кабинете PayPal);
+- оплата через PayPal, можно банковской картой без аккаунта PayPal;
+- после оплаты Pro включается сам — ключ вводить не нужно.
+
+Ещё один способ — [GitHub Sponsors](https://github.com/sponsors/dotradepro): спонсорство от **$5 в месяц** или от **$49 разово** тоже даёт Pro (в карточке «Лицензия» нажмите «Войти через GitHub»). Меньшие суммы — поддержка всех моих проектов, спасибо!
 
 ## 📖 Документация
 
@@ -84,7 +89,7 @@ Then open the panel (Windows: the “Clore Panel” shortcut; Linux: **http://lo
 - **Auto-pricing** — prices from the median of actually-rented servers with the same GPU; floor = mining income + margin. Spot can be kept cheaper than on-demand.
 - **Idle mining** (Kryptex) — a free GPU mines the most profitable coin (Pearl/Quantus) and stops while rented. Workers, income, 31-day rewards and network profitability come from the official pool API; optionally, signing into Kryptex (you log in yourself) unlocks the real balance and editing miner settings right from the panel.
 - **Arbitrage** 🅿️ — rents other GPUs and mines on them when cheaper than the yield; decides by payback and margin, learns from results, verifies hardware authenticity (listing warnings + PCI-chip check in the container), filters bad hosts and sniper bots, pays in BTC/CLORE.
-- **Claude assistant in Telegram** — answers questions about servers, rentals, arbitrage and money (using the panel's data), sends a morning brief; actions (cancel a rental, arbitrage mode) only after you press “Run”. Access via an Anthropic API key or a Claude subscription (Claude Code is installed from the panel with one click).
+- **Claude assistant in Telegram** 🅿️ — answers questions about servers, rentals, arbitrage and money (using the panel's data), sends a morning brief; actions (cancel a rental, arbitrage mode) only after you press “Run”. Access via an Anthropic API key or a Claude subscription (Claude Code is installed from the panel with one click).
 - **Windows app** — its own window and tray icon: status colour, rented servers, today's income, notifications about important events, start at sign-in.
 - **Anti-miner** — throttles renters who mine (never the owner).
 - **Maintenance** — NVIDIA driver, updates, reboot; your own servers via an agent.
@@ -99,10 +104,15 @@ Then open the panel (Windows: the “Clore Panel” shortcut; Linux: **http://lo
 |---|---|
 | Monitoring, charts, earnings/P&L | Arbitrage |
 | Server maintenance | Learning from results |
-| Mining view | Auto-pricing — automatic |
+| Mining view | Auto-pricing — automatic, Claude assistant in Telegram |
 | Auto-pricing — advise mode | Multi-coin mining, market intel |
 
-Pro is handled via [GitHub Sponsors](https://github.com/sponsors/dotradepro): after sponsoring, sign in with GitHub inside the panel — Pro unlocks automatically.
+**How to buy Pro:** right in the panel — *Settings → Accounts & keys → License → Buy Pro*:
+- **$49 — lifetime** (one-time) or **$5 a month** (subscription, cancel anytime in your PayPal account);
+- pay with PayPal, or with a bank card without a PayPal account;
+- Pro turns on by itself after payment — no key to enter.
+
+Another way is [GitHub Sponsors](https://github.com/sponsors/dotradepro): sponsoring **$5+/month** or **$49+ one-time** also unlocks Pro (click “Sign in with GitHub” in the License card). Smaller amounts support all my projects — thank you!
 
 ## 📖 Documentation
 
