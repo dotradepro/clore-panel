@@ -1,6 +1,7 @@
 # Clore Panel
 
 [![Sponsor](https://img.shields.io/badge/Sponsor-%E2%9D%A4-db61a2?logo=githubsponsors)](https://github.com/sponsors/dotradepro)
+[![Ko-fi](https://img.shields.io/badge/Ko--fi-FF5E5B?logo=ko-fi&logoColor=white)](https://ko-fi.com/dotradepro)
 
 Панель мониторинга и **автоматизации заработка** на GPU-серверах [Clore.ai](https://clore.ai): автоцена,
 майнинг в простое, арбитраж (аренда чужих GPU под майнинг, когда это выгоднее) и Claude-помощник в Telegram.
@@ -51,7 +52,7 @@ curl -fsSL https://raw.githubusercontent.com/dotradepro/clore-panel/main/packagi
 - оплата через PayPal, можно банковской картой без аккаунта PayPal;
 - после оплаты Pro включается сам — ключ вводить не нужно.
 
-❤ Поддержать мои проекты можно на [GitHub Sponsors](https://github.com/sponsors/dotradepro) — это именно поддержка, Pro там не продаётся.
+❤ Поддержать мои проекты можно на [GitHub Sponsors](https://github.com/sponsors/dotradepro) или [Ko-fi](https://ko-fi.com/dotradepro) — это именно поддержка, Pro там не продаётся.
 
 ## 📖 Документация
 
@@ -112,7 +113,7 @@ Then open the panel (Windows: the “Clore Panel” shortcut; Linux: **http://lo
 - pay with PayPal, or with a bank card without a PayPal account;
 - Pro turns on by itself after payment — no key to enter.
 
-❤ You can support my projects on [GitHub Sponsors](https://github.com/sponsors/dotradepro) — that's pure support; Pro isn't sold there.
+❤ You can support my projects on [GitHub Sponsors](https://github.com/sponsors/dotradepro) or [Ko-fi](https://ko-fi.com/dotradepro) — that's pure support; Pro isn't sold there.
 
 ## 📖 Documentation
 
